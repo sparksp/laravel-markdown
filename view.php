@@ -76,7 +76,7 @@ class View extends \Laravel\View {
 		// hash of their path. This allows us to easily store the views in
 		// the directory without worrying about re-creating the entire
 		// application view directory structure.
-		$compiled = STORAGE_PATH.'views/'.md5($this->path);
+		$compiled = path('storage').'views/'.md5($this->path);
 
 		// The view will only be re-compiled if the view has been modified
 		// since the last compiled version of the view was created or no
