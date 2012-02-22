@@ -1,4 +1,10 @@
-<?php namespace Markdown;
+<?php namespace Sparkdown;
+
+// Config options for Sparkdown
+define('MARKDOWN_EMPTY_ELEMENT_SUFFIX', '>');
+define('MARKDOWN_PARSER_CLASS', 'Sparkdown\\MarkdownLaravel_Parser');
+
+
 
 #
 # Markdown Extra  -  A text-to-HTML conversion tool for web writers
@@ -2937,7 +2943,11 @@ software, even if advised of the possibility of such damage.
 /**
  * MarkdownExtra for Laravel, passes URLs through the URL class.
  * 
- * @author Phill Sparks <me@phills.me.uk>
+ * @category    Bundle
+ * @package     Sparkdown
+ * @author      Phill Sparks <me@phills.me.uk>
+ * @license 	MIT License <http://www.opensource.org/licenses/mit>
+ * @copyright   2012 Phill Sparks
  */
 class MarkdownLaravel_Parser extends MarkdownExtra_Parser {
 

@@ -1,4 +1,4 @@
-<?php namespace Markdown;
+<?php namespace Sparkdown;
 
 // Note: much of this code is taken from \Laravel\View and will need maintaining as 
 // the core View class is updated.
@@ -6,15 +6,15 @@
 use Bundle, Event;
 
 /**
- * Markdown View
+ * Sparkdown View
  * 
  * Markdown view files are found in standard views directories; bundle syntax works too.
  * 
- * @package     Bundles
- * @subpackage  Markdown
+ * @category    Bundle
+ * @package     Sparkdown
  * @author      Phill Sparks <me@phills.me.uk>
- * 
- * @see  http://github.com/sparksp/laravel-markdown
+ * @license 	MIT License <http://www.opensource.org/licenses/mit>
+ * @copyright   2012 Phill Sparks
  */
 class View extends \Laravel\View {
 
