@@ -7,5 +7,9 @@ Autoloader::map(array(
 ));
 
 // It's safe to assume that if you've started the bundle you're
-// going to want to use the parser.
-require __DIR__.DS."parser.php";
+// going to want to use the parser, but if Markdown is already loaded 
+// don't add it cause it going to generate multiple errors
+if ( ! class_exists('Markdown', false))
+{
+	require __DIR__.DS."parser.php";
+}
