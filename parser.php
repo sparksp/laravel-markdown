@@ -2963,7 +2963,7 @@ class MarkdownLaravel_Parser extends MarkdownExtra_Parser {
 	{
 		$link_text = $this->runSpanGamut($matches[2]);
 		$url       = $matches[3] == '' ? $matches[4] : $matches[3];
-		$title     = $matches[6];
+		$title     = isset($matches[7]) ? $matches[7] : null;
 
 		$url = $this->encodeAttribute($url);
 
@@ -2998,7 +2998,7 @@ class MarkdownLaravel_Parser extends MarkdownExtra_Parser {
 	{
 		$alt_text = $matches[2];
 		$url      = $matches[3] == '' ? $matches[4] : $matches[3];
-		$title    = $matches[6];
+		$title    = isset($matches[7]) ? $matches[7] : null;
 
 		$alt_text = $this->encodeAttribute($alt_text);
 		$url = $this->encodeAttribute($url);
