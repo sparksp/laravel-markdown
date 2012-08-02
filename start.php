@@ -1,11 +1,30 @@
 <?php
 
-// Map the Markdown classes
 Autoloader::map(array(
-	'Sparkdown\\View' => __DIR__.DS.'view'.EXT,
-	'Sparkdown_Page_Controller' => __DIR__.DS.'controllers'.DS.'page'.EXT,
+	'Sparkdown\\Markdown' => __DIR__.DS.'parser'.EXT,
 ));
 
-// It's safe to assume that if you've started the bundle you're
-// going to want to use the parser.
-require __DIR__.DS."parser.php";
+define('MD_EXT', '.md');
+
+View::$extensions[] = MD_EXT;
+
+Event::listen(View::engine, function($view)
+{
+	if ( ! str_contains($view->path, MD_EXT))
+	{
+		return;
+	}	
+
+	$compiled = path('storage').'views/'.md5($view->path);
+
+	if ( ! file_exists($compiled) or filemtime($view->path) > filemtime($compiled))
+	{
+		$text = file_get_contents($view->path);
+		$html = \Sparkdown\Markdown($text);
+		file_put_contents($compiled, $html);
+	}
+
+	$view->path = $compiled;
+
+	return $view->get();
+});
