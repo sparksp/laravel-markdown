@@ -3006,7 +3006,7 @@ class MarkdownLaravel_Parser extends MarkdownExtra_Parser {
 		// BEGIN: Modification to pass URLs through Laravel
 		if ($url[0] !== '#' and is_null(parse_url($url, PHP_URL_SCHEME)))
 		{
-			$url = Laravel\URL::to_asset($url);
+			$url = \Laravel\URL::to_asset($url);
 		}
 		// END
 
